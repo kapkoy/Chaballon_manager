@@ -1,0 +1,39 @@
+<div id="viewer_main_cont">
+  <div id="viewer_topbar">
+    {%include "status_wheel.html"%}
+    <div id="viewer_edit_btn" class="button"></div>
+  </div>
+
+  <div id="viewer_content">
+    <div class="flex_left">
+      <h2 big id="caca">{{ proj["name"] }}</h2>
+      <h3 big>-</h3>
+      <h3 id="v_proj_id" big>{{ '%03d' | format(proj["id"]|int) }}</h3>
+      <div id="paid_btn" {%if proj["paid"]%}paid{%endif%} class="button"></div>
+    </div>
+    <div class="flex_left">
+      <p big>{{ user["firstname"] }} {{ user["lastname"]}}</p>
+      <h4>{{ user["id"] }}</h4>
+    </div>
+
+    <div id="progress_cont">
+      <p big id="time_start">{{proj["time_start"]}}</p>
+      <div id="progressbar_cont">
+        <div id="progressbar"></div>
+        <p big>progressbar</p>
+      </div>
+      <p big id="time_end">{{proj["time_end"]}}</p>
+    </div>
+    <button big id="open_file">Fichiers</button>
+
+    {%include 'todo.html'%}
+    <div id="other_projs_cont">
+      <ul id="other_projs">
+        {% for op in other_p %}
+        <li data-id="{{op['id']}}">{{op["name"]}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+<script src="static/viewer.js"></script>
