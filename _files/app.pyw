@@ -5,8 +5,9 @@ import os
 import time
 from flask_socketio import SocketIO, emit
 
-from modules import db, api, ui
 import globals as var
+from modules import db, api, ui
+
 
 
 app = Flask(__name__, static_folder='static')
