@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<script>
+  //window.resizeTo(1024,800);
+</script>
+
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.5, shrink-to-fit=no"
+    />
+    <meta name="referrer" content="no-referrer" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.1/socket.io.js"
+      integrity="sha512-Z6C1p1NIexPj5MsVUunW4pg7uMX6/TT3CUVldmjXx2kpip1eZcrAnxIusDxyFIikyM9A61zOVNgvLr/TGudOQg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link rel="stylesheet" href="static/style.css" />
+
+    <title>Chaballon Manager</title>
+  </head>
+
+  <body>
+    <div
+      id="bg_image"
+      style="background-image:url(static/bg/{{bg}})!important"
+    ></div>
+    <div id="fat-container">
+      
+      
+      <div id="main_window">
+
+    
+        <div id="header">
+          <div></div>
+          <h1>Chaballon</h1>
+          <div id="add_proj_btn">+</div>
+        </div>
+
+        <div id="projects_cont">
+          <div id="proj_topbar">
+            <div id="sort_cont">
+              <button class="sort_btn" data-key="name" data-invert="false">
+                Nom
+              </button>
+              <button class="sort_btn" data-key="id" data-invert="false">
+                ID
+              </button>
+              <button class="sort_btn" data-key="user" data-invert="false">
+                Client
+              </button>
+            </div>
+            <div id="search_cont">
+              <div id="search_icon" class="button"></div>
+              <input id="searchbar" type="text" />
+              <div id="hide-button" class="button"></div>
+            </div>
+          </div>
+          <div id="projects_scroller">{% include 'projects.html' %}</div>
+        </div>
+      </div>
+
+      <div id="viewer" displayed="false">
+        <div id="viewer_cont"></div>
+      </div>
+    
+    </div>
+
+    <div id="create_dialog" hidden>
+    </div>
+
+  </body>
+  <script src="static/main.js"></script>
+
+</html>
+

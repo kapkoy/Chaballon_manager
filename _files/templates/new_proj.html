@@ -1,0 +1,51 @@
+<form id="new_proj_cont" {%if not new%} edit {%endif%}>
+        <p big>Nom du Projet:</p>
+    <div id="new_proj_name" class="section">
+        <input required type="text" value="{{proj['name']}}">
+        <h3 id="proj_id">- {{'%03d' | format(latest|int)}}</h3>
+    </div>
+
+    <p big>Dates:</p>
+    <div class="section">
+        <input id="new_proj_start" type="date" value="{{proj['time_start']}}">
+        <input id="new_proj_end" type="date" value="{{proj['time_end']}}">
+        
+    </div>
+    
+    <p big>Client:</p>
+    <div class="section">
+        <select id="user_select" name="Client" {%if not new%} disabled {%endif%}>
+            {% for u in users %}
+            <option value="{{u['id']}}" {%if proj["user_id"] == u["id"]%}selected{%endif%}>{{u['firstname']}} {{u['lastname']}}</option>
+            {% endfor %}
+        </select>
+        {% if new %}
+        <button id="new_client_btn" type="button"> Nouveau Client </button>
+        {%else%}
+        <button id="new_client_btn" type="button"> Modifier Client </button>
+        {%endif%}
+    </div>
+
+    <div id="new_client_cont" hidden>
+        <div class="section">   
+            <input class="requiered" type="text" name="lastname" placeholder="Nom" value="{{user['lastname']}}">
+            <input class="requiered" type="text" name="firstname" placeholder="Prénom" value="{{user['firstname']}}">
+        </div>
+
+        <div class="section">
+            <input class="requiered" type="email" name="mail" placeholder="Mail" value="{{user['mail']}}">
+            <input type="text" name="phone" placeholder="Téléphone" value="{{user['phone']}}">
+        </div>
+        <div class="section">
+            <input type="text" name="address" placeholder="Adresse Postale" value="{{user['address']}}">
+        </div>
+    </div>
+    {% if new %}
+    <button big>Créer Projet</button>
+    {%else%}
+    <button big>Confirmer Modifications</button>
+    {%endif%}
+
+</form>
+
+  <script src="static/new_proj.js"></script>

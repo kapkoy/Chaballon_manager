@@ -1,0 +1,17 @@
+{% for proj in projects %}
+<div class="proj_cont" data-id="{{proj['id']}}" data-search="{{proj.values() | join(' ')}}" data-status="{{proj['status']}}">
+  <div class="proj_top_cont" >
+    <h2 class="proj_button">{{proj['name']}}</h2>
+    <h3>-</h3>
+    <h3 class="proj_id">{{'%03d' | format(proj['id']|int)}}</h3>
+    <p class="proj_time_end">{{proj["time_end"]}}</p>
+  </div>
+
+  <div class="proj_top_cont">
+    <p class="proj_user">{{proj['user']}}</p>
+    <p>{{proj["status"]}}</p>
+  </div>
+</div>
+{% endfor %}
+<div class="noresult" style="display:none">Aucun résultats</div>
+<script src="static/project_scroller.js"></script>

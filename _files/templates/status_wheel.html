@@ -1,0 +1,14 @@
+<div id="stats_cont">
+  {% for stat in status%}
+  <div
+    class="status_selector"
+    data-status='{{stat["name"]}}'
+    style="background-image:url('static/logos/{{stat['file']}}')"
+    {% if proj["status"] == stat["name"] %} selected {% endif %}
+  >
+<p>{{stat["name"]}}</p>
+</div>
+  {% endfor %}
+</div>
+
+<script src="static/status_wheel.js"></script>

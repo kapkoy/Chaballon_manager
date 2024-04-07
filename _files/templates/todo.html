@@ -1,0 +1,29 @@
+<div id="todolist_cont">
+  <h2>TodoList</h2>
+  <form id="todos_form">
+    <ul id="todolist">
+      {%for todo in proj["todos"] %}
+      <li class="todo_item">
+        <input class="checkinput" type="checkbox" {%if todo["checked"] == true
+        %} checked {%endif%}/> <input class="textinput " type="text"
+        value="{{todo['text']}}" {%if todo["checked"] == true %} checked
+        {%endif%}/>
+        <div class="draghandle" draggable="true"></div>
+      </li>
+      {% endfor %}
+    </ul>
+    <button hidden>click</button>
+  </form>
+  <form id="new_todo_cont">
+    <input placeholder="Nouvelle Todo" type="text" name="new todo" />
+    <button>+</button>
+  </form>
+</div>
+
+<li id="todo_template" hidden>
+  <input class="checkinput" type="checkbox" />
+  <input class="textinput" type="text" value="4" />
+  <div class="draghandle" draggable="true"></div>
+</li>
+
+<script src="static/todo.js"></script>
